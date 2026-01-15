@@ -1,0 +1,49 @@
+# Diagram
+
+```mermaid
+flowchart TD
+    Start([Start])
+    Login[/Logowanie/]
+    Dash((Dashboard))
+    Choice{Wybierz moduł}
+    Assign[Przydziel zadania]
+    Attendance[Listy obecności]
+    Inventory[Magazyn części]
+    Orders[Zlecenia]
+    Reports[Raporty i analizy]
+    Permissions[Zarządzanie uprawnieniami]
+
+    TaskAssign[Wybierz pracownika<br/>Przydziel zadanie]
+    Notify[Powiadomienie dla pracownika]
+    MarkDone[Zaznacz zadanie jako ukończone]
+
+    CheckAttendance[Sprawdź/aktualizuj obecność]
+    CheckStock[Sprawdź stan magazynu]
+    AdjustStock[Dodaj/usuń pozycje magazynowe]
+    CreateOrder[Utwórz/edytuj zlecenie]
+    AssignFromOrder[Przypisz zlecenie do pracownika]
+
+    End([Koniec])
+
+    Start --> Login --> Dash --> Choice
+
+    Choice -->|Zadania| Assign
+    Choice -->|Obecność| Attendance
+    Choice -->|Magazyn| Inventory
+    Choice -->|Zlecenia| Orders
+    Choice -->|Raporty| Reports
+    Choice -->|Uprawnienia| Permissions
+
+    Assign --> TaskAssign --> Notify --> MarkDone --> Dash
+    Attendance --> CheckAttendance --> Dash
+    Inventory --> CheckStock -->|Brak/niski stan| AdjustStock --> CheckStock
+    CheckStock --> Dash
+    Orders --> CreateOrder --> AssignFromOrder --> Notify --> Dash
+
+    Reports --> Dash
+    Permissions --> Dash
+
+    Login -->|Błąd| Start
+    MarkDone -->|Zamknięcie zlecenia| Orders
+    End
+```
