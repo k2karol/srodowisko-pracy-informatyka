@@ -1,0 +1,1 @@
+Projekt dotyczy aplikacji pomagającej zarządzać warsztatem samochodowym. Jej głównym zadaniem jest szybki podział obowiązków między pracowników, sprawdzenie listy ich obecności, sprawdzanie i zarządzanie listą częsci na magazynie oraz zleceń do wykonania. Odbiorcy to właściciele oraz pracownicy wartsztatów samochodowych.
